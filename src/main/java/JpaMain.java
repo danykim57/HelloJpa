@@ -28,6 +28,10 @@ public class JpaMain {
           .setFirstResult(5)
           .setMaxResults(8)
           .getResultList();
+      tx.begin();
+      Member member1 = em.find(Member.class, 101L);
+      Member member2 = em.find(Member.class, 101L);
+      tx.commit();
       for (Member memb : result) {
         System.out.println("member.name = " + memb.getName());
       }
