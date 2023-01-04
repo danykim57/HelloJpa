@@ -2,6 +2,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JpaMain {
@@ -31,6 +32,14 @@ public class JpaMain {
       tx.begin();
       Member member1 = em.find(Member.class, 101L);
       Member member2 = em.find(Member.class, 101L);
+      Member member3 = em.find(Member.class, 150L);
+      List<Member> list = new ArrayList<>();
+      list.add(member1);
+      list.add(member2);
+      list.add(member3);
+      for (Member m: list) {
+        tx.commit();
+      }
       tx.commit();
       for (Member memb : result) {
         System.out.println("member.name = " + memb.getName());
