@@ -42,6 +42,8 @@ public class JpaMain {
       }
       tx.commit();
       for (Member memb : result) {
+        memb.setName("ABCDEFU");
+        em.persist(memb);
         System.out.println("member.name = " + memb.getName());
       }
       tx.commit();
