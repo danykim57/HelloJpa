@@ -46,6 +46,7 @@ public class JpaMain {
         em.persist(memb);
         System.out.println("member.name = " + memb.getName());
       }
+      em.flush();
       tx.commit();
     } catch (Exception e) {
       tx.rollback();
