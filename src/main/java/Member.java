@@ -10,6 +10,7 @@ public class Member {
   private Long id;
   @Column(name = "name")
   private String username;
+
   private Integer age;
   @Enumerated(EnumType.STRING)
   private RoleType roleType;
