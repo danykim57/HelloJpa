@@ -5,10 +5,10 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@TableGenerator(
+@SequenceGenerator(
     name = "MEMBER_SEQ_GENERATOR",
-    table = "MY_SEQUENES",
-    pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
+    sequenceName = "MEMBER_SEQ",
+    initialValue = 1, allocationSize = 1)
 public class Member {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
