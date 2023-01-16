@@ -9,13 +9,18 @@ import java.util.Date;
     name = "MEMBER_SEQ_GENERATOR",
     sequenceName = "MEMBER_SEQ",
     initialValue = 1, allocationSize = 1)
+@Getter
+@Setter
 public class Member {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @Column(name="MEMBER_ID")
   private Long id;
   @Column(name = "name")
   private String username;
-
+  @ManyToOne
+  @JoinColumn(name = "TEAM_ID")
+  private Team team;
   private Integer age;
   @Enumerated(EnumType.STRING)
   private RoleType roleType;
@@ -25,4 +30,6 @@ public class Member {
   private Date lastModifiedDate;
   @Lob
   private String description;
+
+
 }
