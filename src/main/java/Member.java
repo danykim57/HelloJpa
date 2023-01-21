@@ -2,7 +2,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @SequenceGenerator(
@@ -24,6 +27,10 @@ public class Member {
   private Integer age;
   @Enumerated(EnumType.STRING)
   private RoleType roleType;
+  private List<MemberProduct> memberProductList = new ArrayList<>();
+  private String createBy;
+  private LocalDateTime createDate;
+  private String lastModifiedBy;
   @Temporal(TemporalType.TIMESTAMP)
   private Date createdDate;
   @Temporal(TemporalType.TIMESTAMP)
