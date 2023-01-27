@@ -38,5 +38,4 @@ public class Member {
   @Lob
   private String description;
 
-
 }

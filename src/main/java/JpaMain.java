@@ -55,5 +55,25 @@ public class JpaMain {
 //      em.close();
 //    }
 //    emf.close();
+
+    String s = "";
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory(s);
+    EntityManager em = emf.createEntityManager();
+    EntityTransaction tx = em.getTransaction();
+    tx.begin();
+    try {
+      Member member = em.find(Member.class, 1L);
+      printMember(member);
+      tx.commit();
+    } catch (Exception e) {
+      tx.rollback();
+    } finally {
+      em.close();
+    }
+    emf.close();
+  }
+
+  public static void printMember(Member member) {
+    System.out.println("member = " + member.getUsername());
   }
 }
